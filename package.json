@@ -2,7 +2,7 @@
   "name": "ezops-test-guilhermegarcia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/ggarcia00/ezops-test-guilhermegarcia/issues"
   },
-  "homepage": "https://github.com/ggarcia00/ezops-test-guilhermegarcia#readme"
+  "homepage": "https://github.com/ggarcia00/ezops-test-guilhermegarcia#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.3",
+    "socket.io": "^4.5.2"
+  }
 }
