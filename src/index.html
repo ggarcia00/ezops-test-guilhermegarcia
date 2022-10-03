@@ -34,12 +34,12 @@ function addMessages(message){
       <p>  ${message.message} </p>`)
    }
 function getMessages(){
-  $.get('http://localhost:8000/messages', (data) => {
+  $.get('http://localhost:80/messages', (data) => {
    data.forEach(addMessages);
    })
  }
 function sendMessage(message){
-   $.post('http://localhost:8000/messages', message)
+   $.post('http://localhost:80/messages', message)
  }
 
 var socket = io();socket.on('message', addMessages)

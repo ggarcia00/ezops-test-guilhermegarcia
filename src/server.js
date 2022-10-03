@@ -7,7 +7,7 @@ const io = require('socket.io')(http);
 
 
 const dbUrl = "mongodb+srv://chatapp:sZ4xkFfh9gc71l6x@cluster0.szokxbn.mongodb.net/chatdb?retryWrites=true&w=majority";
-const PORT = 8000;
+const PORT = 80;
 
 
 app.use(bodyParser.json());
