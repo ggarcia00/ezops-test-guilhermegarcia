@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/app:latest
+        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/app:latest
         
         
       - name: Log in to Docker Hub
@@ -27,7 +27,7 @@ jobs:
         
         
       - name: Push to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USER }}/app
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/app
         
 
       - name: SSH Remote Commands
