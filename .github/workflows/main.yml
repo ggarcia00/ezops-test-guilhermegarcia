@@ -28,5 +28,5 @@ jobs:
             docker build -t app:latest .
             docker container stop ezops-app
             docker container rm ezops-app
-            docker run --name ezops-app --restart always -p 80:8000 app
+            docker run -d --name ezops-app --restart always -p 80:8000 app
 
