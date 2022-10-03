@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
@@ -7,13 +8,19 @@ const io = require('socket.io')(http);
 
 
 const dbUrl = "mongodb+srv://chatapp:sZ4xkFfh9gc71l6x@cluster0.szokxbn.mongodb.net/chatdb?retryWrites=true&w=majority";
-const PORT = 80;
+const PORT = 8000;
 
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname));
 
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    next();
+});
 
 const Message = mongoose.model('Message',{ name : String, message : String});
 
