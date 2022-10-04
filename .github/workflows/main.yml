@@ -30,16 +30,13 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/app
         
 
-      - name: SSH Remote Commands
+      - name: Deploy to EC2
         uses: appleboy/ssh-action@v0.1.5
         with: 
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /app
-            git pull
-            docker build -t app:latest .
             docker container stop ezops-app
             docker container rm ezops-app
-            docker run -d --name ezops-app --restart always -p 80:8000 app
+            docker run -d --name ezops-app --restart always -p 80:8000 guigarcia/app
