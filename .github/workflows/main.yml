@@ -39,4 +39,5 @@ jobs:
           script: |
             docker container stop ezops-app
             docker container rm ezops-app
+            docker pull ${{ secrets.DOCKER_USERNAME }}/app
             docker run -d --name ezops-app --restart always -p 80:8000 ${{ secrets.DOCKER_USERNAME }}/app
